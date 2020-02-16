@@ -1,0 +1,39 @@
+<!-- 未登录 -->
+<!-- <view class="weidenglu"wx:if="{{loginOK}}">
+  <view class="wel">
+    <view >欢迎光临</view>
+    <view >如需使用请点击登录</view>
+  </view>
+  <button class="login"type="primary"bindtap="login">登录</button>  
+</view> -->
+<!-- 已登录 -->
+<view class="quanbu">
+<view class="list-group1" >
+  <view class="title">
+    <view class="set">类型</view>
+    <view class="en">
+      <view class="hour">时</view>
+      <view class="aaa">(0-23)</view>
+    </view>
+    <view class="en">
+      <view class="hour">分</view>
+      <view class="aaa">(0-59)</view>
+    </view>  
+  </view>
+</view>
+<view class="container">
+  <form bindsubmit="onSubmitEvent">
+    <view  wx:for="{{time}}"class="list-group">
+      <view class="type">{{item.data.TypeName}}</view>
+      <input value="{{hour}}" data-index="{{index}}"bindinput="hour" class="textarea" placeholder="{{item.data.hour}}"></input>
+      <image class="maohao" src="../../images/数字冒号.png"></image>
+      <input value="{{min}}"data-index="{{index}}" bindinput="min" class="textarea" placeholder="{{item.data.min}}"></input>
+    </view>
+    <view class="btn"> 
+      <button formType="submit"class="submit-btn"type="primary">保存</button>
+      <button formType="reset" bindtap="onCancelEvent"class="cancel-btn"type="default">取消</button>
+      <button bindtap="tuichu" class="tuichu-btn"type="warn">退出登录</button>
+    </view>  
+  </form>
+</view>  
+</view>

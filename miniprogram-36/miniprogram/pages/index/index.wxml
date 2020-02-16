@@ -1,0 +1,39 @@
+<!-- 未登录 -->
+<!-- <view class="weidenglu"wx:if="{{loginOK}}">
+  <view class="wel">
+    <view >欢迎光临</view>
+    <view >如需使用请点击登录</view>
+  </view>
+  <button class="login"type="primary"bindtap="login">登录</button>  
+</view> -->
+<!-- <!-- 已登录 -->
+<view class="bg_box">
+<view class="container">
+  <view class="welcome">{{name}}你好,欢迎使用~</view>
+  <view class="set-btn"bindtap="onSetTap">
+	  前往设置
+  </view>
+  <form bindsubmit="onSubmitEvent"enctype="multipart/form-data">
+    <textarea name="content" class="textarea" placeholder="请输入文字，文字为必须输入项"></textarea>
+    <view class="form">类型</view>
+    <view class="icon">
+　　<view wx:for="{{gender}}" bindtap="chooseType" class="{{currentType==item.Id?'active':'noactive'}}" data-id="{{item.Id}}">{{item.TypeName}}</view>
+    </view>
+    <view class="form">图片</view>
+      <view class="image-list-group">
+        <view wx:for="{{tempImages}}"class="image-group"style="width:{{imageSize}}px;height:{{imageSize}}px">
+          <image src="{{item}}"bindtap="onImageTap"data-index="{{index}}"></image>
+          <view class="close-btn"bindtap="onRemoveBtnTap"data-index="{{index}}"></view>
+        </view>
+      <view wx:if="{{tempImages.length<1}}"class="add-image-btn"style="width:{{imageSize}}px;height:{{imageSize}}px"bindtap="onAddImageTap">
+        <view >+</view>
+      </view>
+    </view>
+    <view class="btn"> 
+      <button formType="submit"class="submit-btn"type="primary">提交</button>
+      <button formType="reset" bindtap="onCancelEvent"class="cancel-btn"type="default">取消</button>
+      <button bindtap="tuichu" class="tuichu-btn"type="warn">退出登录</button>
+    </view>  
+  </form>
+</view>
+</view>

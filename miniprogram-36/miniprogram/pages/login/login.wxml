@@ -1,0 +1,13 @@
+<view class="container">
+  <view class="imagesize">
+    <image class="image"src="../../images/my (1).png"></image>
+  </view>  
+  <view class="login1">登录系统</view>
+  <view class="login">密码</view>
+  <form bindsubmit="onSubmitEvent"enctype="multipart/form-data">
+    <textarea name="password" class="textarea" placeholder="请输入密码"></textarea>
+    <view class="btn"> 
+      <button formType="submit"class="submit-btn"type="primary">登录</button>
+    </view>  
+  </form>
+</view>
