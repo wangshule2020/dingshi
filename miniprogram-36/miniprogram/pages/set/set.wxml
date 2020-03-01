@@ -32,6 +32,7 @@
     <view class="btn"> 
       <button formType="submit"class="submit-btn"type="primary">保存</button>
       <button formType="reset" bindtap="onCancelEvent"class="cancel-btn"type="default">取消</button>
+      <button bindtap="back" class="tuichu-btn"type="default">返回上一页</button>
       <button bindtap="tuichu" class="tuichu-btn"type="warn">退出登录</button>
     </view>  
   </form>

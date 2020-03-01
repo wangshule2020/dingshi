@@ -30,12 +30,12 @@ Page({
   },
 
   onSubmitEvent: function (event){
-    const password = event.detail.value.password
+    const password = event.detail.value.password;
     wx.showLoading({
       title: '登录中...',
     })
     wx.request({
-      url: 'https://www.wangshule.top/login',
+      url: 'https://www.wangshule.top:8089/login',
       data: {
         "password":password
       },

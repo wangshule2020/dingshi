@@ -9,7 +9,7 @@
 <!-- <!-- 已登录 -->
 <view class="bg_box">
 <view class="container">
-  <view class="welcome">{{name}}你好,欢迎使用~</view>
+  <view class="welcome">你好,欢迎使用~</view>
   <view class="set-btn"bindtap="onSetTap">
 	  前往设置
   </view>
@@ -31,7 +31,7 @@
     </view>
     <view class="btn"> 
       <button formType="submit"class="submit-btn"type="primary">提交</button>
-      <button formType="reset" bindtap="onCancelEvent"class="cancel-btn"type="default">取消</button>
+      <button formType="reset" bindtap="onCancelEvent"class="cancel-btn"type="default">清空</button>
       <button bindtap="tuichu" class="tuichu-btn"type="warn">退出登录</button>
     </view>  
   </form>

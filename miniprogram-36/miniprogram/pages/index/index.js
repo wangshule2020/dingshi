@@ -33,7 +33,7 @@ Page({
   onLoad: function (options) {
     const that =this;
       wx.request({
-        url: 'https://www.wangshule.top/getTypeList',
+        url: 'https://www.wangshule.top:8089/getTypeList',
         header: {
           'cookie': wx.getStorageSync("cookieKey")
         },
@@ -80,7 +80,7 @@ Page({
       })
     }
       wx.uploadFile({
-        url: 'https://www.wangshule.top/addArticle',
+        url: 'https://www.wangshule.top:8089/addArticle',
         filePath: that.data.tempFilePaths[0],
         name: 'images',
         formData: adds,

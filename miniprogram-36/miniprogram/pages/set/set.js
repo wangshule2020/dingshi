@@ -42,7 +42,7 @@ Page({
         that.setData({
           time: time
         })
-        console.log(time);
+        //console.log(time);
    
   },
 
@@ -51,7 +51,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log(this.data.time);
+   // console.log(this.data.time);
     let password = wx.getStorageSync('password');
     if (password == 111) {
       this.setData({
@@ -65,23 +65,25 @@ Page({
   },
 
   onSubmitEvent: function (event) {
+    let a = this.data.time;
     const type=this.data.type;
     var SendTime=[];
     var send=[];
     var Id="";
     for(var i=0;i<type.length;i++){
-     SendTime[i] = type[i].hour + ","+type[i].min;
+      SendTime[i] = ((type[i].hour != undefined) ? type[i].hour : a[i].data.hour) + "," + ((type[i].min != undefined) ? type[i].min : a[i].data.min);
       send[i] = "\""+type[i].Id+"\"" + ":"+"[" + SendTime[i]+"]";
    }
     var send="{"+send+"}";
+    console.log(send);
     var result = JSON.parse(send);
-    console.log(result);
+    //console.log(result);
     var jsonData = JSON.stringify(result);
     console.log(jsonData);
     var result1 = JSON.parse(jsonData);
-    console.log(result1);
+   // console.log(result1);
     wx.request({
-      url: 'https://www.wangshule.top/alterParam',
+      url: 'https://www.wangshule.top:8089/alterParam',
       data: {
         paramSeting: jsonData,
       },
@@ -92,8 +94,6 @@ Page({
       method: "POST",
       dataType: "json",
       success:function(res){
-        console.log(res);
-        console.log()
         wx.showToast({
           title: '保存成功',
           icon:"success",
@@ -101,26 +101,27 @@ Page({
         })
       },
         fail(res){
-          console.log(res)
       }
     })
   },
   hour(e){
-    let dataset = e.currentTarget.dataset;    
-    let value = e.detail.value; // 获取value  
+    let a = this.data.time;
+    let dataset = e.currentTarget.dataset;
+    let value = e.detail.value ; // 获取value  
     if (value % 1 != 0 || value < 0 || value > 24) {
       wx.showToast({
         icon: "none",
         title: '时间格式输入错误',
       })     
     }
-     console.log(value);    
      let arr = this.data.type;     
      arr[dataset.index].hour=value;    
   },
   min(e) {
+    let a = this.data.time;
     let dataset = e.currentTarget.dataset;
-    let value = e.detail.value; // 获取value 
+    let value = e.detail.value ;
+    //console.log(value); // 获取value 
     if (value%1!=0||value<0||value>=60) {
       wx.showToast({
         icon: "none",
@@ -140,4 +141,9 @@ Page({
       url: '/pages/login/login',
     })
   },
+  back(){
+    wx.navigateBack({
+      url: '/pages/index/index',
+    })
+  }
 })
